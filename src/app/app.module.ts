@@ -7,6 +7,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {CustomInterceptor} from "./custom.interceptor";
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import {AppRoutingModule} from "./app.routes";
 
 @NgModule({
   declarations: [],
@@ -16,7 +17,8 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
     HttpClientModule,
     NoopAnimationsModule,
     UserRegistrationComponent,
-    AppComponent
+    AppComponent,
+    AppRoutingModule
   ],
   providers: [
     {
