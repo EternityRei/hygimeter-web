@@ -1,5 +1,6 @@
+import { NgModule } from '@angular/core';
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpClientModule, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 
 import {environment} from '../environments/environment.local';
@@ -9,6 +10,9 @@ const headers = new HttpHeaders()
 const httpOptions = {headers: headers}
 const BACKEND_URL = environment.apiUrl;
 
+@Injectable({
+  providedIn: 'root' // This makes the service a singleton at the root level
+})
 export class AuthenticationService {
 
   constructor(private http: HttpClient) {
@@ -31,3 +35,9 @@ export class AuthenticationService {
     }, httpOptions)
   }
 }
+
+@NgModule({
+  imports: [HttpClientModule],
+  providers: [AuthenticationService]
+})
+export class AuthModule {}

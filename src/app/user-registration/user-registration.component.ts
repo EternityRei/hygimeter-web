@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import {AuthenticationService} from "../authentication.service";
+import {AuthenticationService, AuthModule} from "../authentication.service";
 import {Router} from "@angular/router";
 import {catchError, tap} from "rxjs";
 
 @Component({
   selector: 'app-user-registration',
   standalone: true,
-  imports: [],
+  imports: [AuthModule],
   templateUrl: './user-registration.component.html',
   styleUrl: './user-registration.component.css'
 })
