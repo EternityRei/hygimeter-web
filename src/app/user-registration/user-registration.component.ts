@@ -3,8 +3,6 @@ import {AuthenticationService, AuthModule} from "../authentication.service";
 import {Router} from "@angular/router";
 import {catchError, tap} from "rxjs";
 import {FormsModule} from "@angular/forms";
-import {AppModule} from "../app.module";
-import {NgIf} from "@angular/common";
 import {CommonModule} from "@angular/common";
 
 @Component({
