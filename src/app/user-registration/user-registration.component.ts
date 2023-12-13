@@ -2,11 +2,14 @@ import { Component } from '@angular/core';
 import {AuthenticationService, AuthModule} from "../authentication.service";
 import {Router} from "@angular/router";
 import {catchError, tap} from "rxjs";
+import {FormsModule} from "@angular/forms";
+import {AppModule} from "../app.module";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-user-registration',
   standalone: true,
-  imports: [AuthModule],
+  imports: [AuthModule, FormsModule, AppModule, NgIf],
   templateUrl: './user-registration.component.html',
   styleUrl: './user-registration.component.css'
 })

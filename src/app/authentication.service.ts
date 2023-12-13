@@ -11,7 +11,7 @@ const httpOptions = {headers: headers}
 const BACKEND_URL = environment.apiUrl;
 
 @Injectable({
-  providedIn: 'root' // This makes the service a singleton at the root level
+  providedIn: 'root'
 })
 export class AuthenticationService {
 
