@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="registration-container">
+
+    <h2>Registration</h2>
+    <form #registrationForm="ngForm" (ngSubmit)="register()" *ngIf="isFormRegisterVisible" class="registration-form">
+      <div class="form-field">
+        <label for="name">Name:</label>
+        <input type="text" id="name" class="input-field" [(ngModel)]="name" name="name" required>
+      </div>
+
+      <div class="form-field">
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" class="input-field" [(ngModel)]="surname" name="surname" required>
+      </div>
+
+      <div class="form-field">
+        <label for="email">Email:</label>
+        <input type="email" id="email" class="input-field" [(ngModel)]="email" name="email" required email>
+      </div>
+
+      <div class="form-field password-field">
+        <label for="password">Password:</label>
+        <input [type]="passwordFieldType" id="password" class="input-field" [(ngModel)]="password" name="password" required>
+        <i class="toggle-password material-icons" (click)="togglePasswordVisibility()">
+          {{passwordFieldType === 'password' ? 'visibility' : 'visibility_off'}}
+        </i>
+      </div>
+
+      <div class="form-field">
+        <button type="submit" [disabled]="!registrationForm.valid || isButtonDisabled">Register</button>
+      </div>
+
+      <div class="message" *ngIf="message">{{message}}</div>
+    </form>
+
+    <div class="success-message" *ngIf="!isFormRegisterVisible && isIsSuccessRegister">
+      Registration successful!
+    </div>
+
+    <div class="error-message" *ngIf="!isIsSuccessRegister">
+      Registration failed. Please try again.
+    </div>
+  </div>
+
+  <div class="image-container">
+    <img src="/assets/registration.png" alt="Descriptive text for image" />
+  </div>
+</div>
+

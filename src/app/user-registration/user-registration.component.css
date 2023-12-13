@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+/* Apply Montserrat font to all elements */
+div {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Flex container for both form and image */
+.container {
+  display: flex;
+  justify-content: space-between; /* Spacing between form and image */
+  align-items: center; /* Vertically center contents */
+  margin-left: auto; /* Align container to the right */
+  margin-right: auto; /* Align container to the left */
+}
+
+/* Styling for the registration form */
+.registration-container {
+  max-width: 700px; /* Maximum width of the form */
+  margin: 7rem 25rem; /* Positioning the form in the view */
+  padding: 2rem; /* Padding inside the form */
+  background-color: #fff; /* White background for the form */
+  border-radius: 8px; /* Rounded corners for the form */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for the form */
+  flex: 1; /* Flex grow to fill available space */
+}
+
+.registration-container h2 {
+  text-align: center;
+  font-weight: bold;
+}
+
+
+/* Styling for the image container */
+.image-container {
+  flex: 1; /* Flex grow to fill available space */
+  max-width: 550px; /* Maximum width of the image */
+  margin-left: 200px; /* Margin from the left side */
+}
+
+/* Image styling */
+.image-container img {
+  width: 100%; /* Full width of the container */
+  height: auto; /* Keep aspect ratio */
+}
+
+/* Form title styling */
+.registration-form h2 {
+  text-align: center; /* Center the title text */
+  color: #333; /* Dark grey color for the text */
+  margin-bottom: 2rem; /* Space below the title */
+}
+
+/* Input field styling */
+.form-field {
+  margin-bottom: 1rem; /* Space between fields */
+  position: relative; /* Position relative for absolute positioning inside */
+}
+
+/* Input styling */
+.input-field {
+  width: 100%; /* Full width of the form field */
+  padding: 0.75rem; /* Padding inside the input */
+  border: 1px solid #ccc; /* Border for the input */
+  border-radius: 4px; /* Rounded corners for the input */
+}
+
+/* Password field icon positioning */
+.password-field i {
+  position: absolute; /* Absolute positioning inside the form field */
+  right: 10px; /* From the right side */
+  top: 35px; /* From the top side */
+  cursor: pointer; /* Pointer cursor on hover */
+  color: #333; /* Icon color */
+}
+
+/* Label styling */
+label {
+  display: block; /* Block display to take full width */
+  margin-bottom: 0.5rem; /* Space below the label */
+  color: #333; /* Label text color */
+}
+
+/* Button styling */
+button {
+  width: 100%; /* Full width of the form field */
+  padding: 1rem; /* Padding inside the button */
+  border: none; /* No border for the button */
+  background-color: #0056b3; /* Background color for the button */
+  color: white; /* Text color for the button */
+  border-radius: 4px; /* Rounded corners for the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1rem; /* Font size for the button */
+  transition: background-color 0.3s ease; /* Transition for the button */
+}
+
+/* Button hover state */
+button:hover:not(:disabled) {
+  background-color: #003d82; /* Darker color on hover */
+}
+
+/* Button disabled state */
+button:disabled {
+  background-color: #cccccc; /* Gray background when disabled */
+  cursor: not-allowed; /* No pointer cursor when disabled */
+}
+
+/* Message styling for validation and feedback */
+.message, .success-message, .error-message {
+  text-align: center; /* Center the message text */
+  margin-top: 1rem; /* Space above the message */
+}
+
+/* Error message styling */
+.message {
+  color: #d9534f; /* Red color for error messages */
+}
+
+/* Success message styling */
+.success-message {
+  color: #5cb85c; /* Green color for success messages */
+}
+
+/* Adjust margins to align the form as required */
+.registration-container {
+  margin-left: 2rem; /* Align to the left */
+  margin-right: auto; /* Maintain margin on the right */
+}
