@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserRegistrationComponent } from './user-registration.component';
 
-describe('UserRegistrationComponentComponent', () => {
+describe('UserRegistrationComponent', () => {
   let component: UserRegistrationComponent;
   let fixture: ComponentFixture<UserRegistrationComponent>;
 
@@ -11,7 +11,7 @@ describe('UserRegistrationComponentComponent', () => {
       imports: [UserRegistrationComponent]
     })
     .compileComponents();
-
+    
     fixture = TestBed.createComponent(UserRegistrationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
