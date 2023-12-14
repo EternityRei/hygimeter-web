@@ -12,20 +12,32 @@ const BACKEND_URL = environment.apiUrl;
   providedIn: "root",
 })
 export class UserService {
-  constructor(private http: HttpClient) {}
 
-  getUsersByRole(role: String): Observable<any> {
-    return this.http.get<any>(BACKEND_URL + "users", {
-      params: new HttpParams().append("role", role.valueOf()),
-    });
+  token: string = '';
+
+  constructor(private http: HttpClient) {
+    this.token = localStorage.getItem("token") as string;
   }
 
   getUserByEmail(email: String): Observable<any> {
-    const token = localStorage.getItem("token") as string;
     return this.http.get<any>(BACKEND_URL + "users/" + email, {
-      headers: new HttpHeaders().set('Authorization', 'Bearer ' + token),
+      headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.token),
     });
   }
+
+  updateUserData(user: User, emailFromJwt: string): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('Authorization', 'Bearer ' + this.token)
+      .set('Content-Type', 'application/json');
+
+    return this.http.patch<any>(BACKEND_URL + "users/" + emailFromJwt, {
+      name: user.name,
+      surname: user.surname,
+      email: user.email,
+      role: user.role
+    }, { headers: headers });
+  }
+
 }
 
 @NgModule({

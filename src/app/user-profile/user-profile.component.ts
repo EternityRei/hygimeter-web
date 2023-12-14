@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {User} from "../user";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {UserModule, UserService} from "../user.service";
@@ -6,23 +6,24 @@ import {Router} from "@angular/router";
 import {catchError, tap} from "rxjs";
 import {MatSnackBar, MatSnackBarConfig} from "@angular/material/snack-bar";
 import {MatDialog} from "@angular/material/dialog";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-user-profile',
   standalone: true,
-  imports: [UserModule],
+  imports: [UserModule, FormsModule],
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.css'
 })
 export class UserProfileComponent implements OnInit {
 
-  user: User;
-  activeMenuItem: string = "users";
+  retrievedUser: User;
   userFound: boolean = false;
   message: string = "";
   helper = new JwtHelperService();
-  editInfo: boolean = false;
   email: string = '';
+  changedFields: Set<string> = new Set<string>();
+  emptyFields: string[] = [];
 
   constructor(
     private userService: UserService,
@@ -31,12 +32,12 @@ export class UserProfileComponent implements OnInit {
     private snackBar: MatSnackBar
   ) {
     const currentUserToken = localStorage.getItem("token") as string;
-    this.user = new User(
+    this.retrievedUser = new User(
       '',
       '',
       '',
        '',
-       ''
+       'USER'
     );
     this.email = this.helper.decodeToken(currentUserToken).sub as string;
   }
@@ -50,8 +51,8 @@ export class UserProfileComponent implements OnInit {
       .getUserByEmail(email)
       .pipe(
         tap((data: any) => {
-          this.user = data.results[0];
-          console.log(this.user);
+          this.retrievedUser = data.results[0];
+          console.log(this.retrievedUser);
           this.userFound = true;
         }),
         catchError((error: any) => {
@@ -66,6 +67,61 @@ export class UserProfileComponent implements OnInit {
         })
       )
       .subscribe();
+  }
+
+  updateUserData() {
+    const updatedUser: User = { ...this.retrievedUser };
+    console.log("Updated user = ", updatedUser);
+    if (!this.checkValidity(updatedUser)) {
+      this.changedFields.clear();
+      return;
+    }
+    this.userService
+      .updateUserData(updatedUser, this.email)
+      .pipe(
+        tap((response: any) => {
+          this.getUserByEmail(updatedUser.email);
+          this.displayMessageBar(
+            "User's profile has been updated successfully"
+          );
+          this.changedFields.clear();
+          this.isFormChanged();
+        }),
+        catchError((error: any) => {
+          console.log(error);
+          if (error.status == 404) {
+            this.message = error.error.statusMessage;
+          } else {
+            this.handleError(error);
+          }
+          return [];
+        })
+      )
+      .subscribe();
+  }
+
+  setFieldChanged(field: string): void {
+    this.changedFields.add(field);
+    this.checkValidity(this.retrievedUser);
+  }
+
+  isFormChanged(): boolean {
+    return this.changedFields.size > 0 && !(this.emptyFields.length > 0);
+  }
+
+  checkValidity(user: User): boolean {
+    this.emptyFields.splice(0);
+    if (!user.name) {
+      this.emptyFields.push("name");
+      return false;
+    } else if (!user.surname) {
+      this.emptyFields.push("surname");
+      return false;
+    } else if (!user.email) {
+      this.emptyFields.push("email");
+      return false;
+    }
+    return true;
   }
 
   private handleError(error: any): void {
