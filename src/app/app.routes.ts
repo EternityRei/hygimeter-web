@@ -4,6 +4,7 @@ import {NgModule} from "@angular/core";
 import {HomeComponent} from "./home/home.component";
 import {UserLoginComponent} from "./user-login/user-login.component";
 import {NewsDashboardComponent} from "./news-dashboard/news-dashboard.component";
+import {UserProfileComponent} from "./user-profile/user-profile.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -11,6 +12,7 @@ export const routes: Routes = [
   {path: 'registration', component: UserRegistrationComponent},
   {path: 'login', component: UserLoginComponent},
   {path: 'dashboard', component: NewsDashboardComponent},
+  {path: 'user-profile', component: UserProfileComponent},
 ];
 
 @NgModule({

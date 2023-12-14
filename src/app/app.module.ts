@@ -3,7 +3,7 @@ import {AppComponent} from "./app.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {NoopAnimationsModule} from "@angular/platform-browser/animations";
+import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {CustomInterceptor} from "./custom.interceptor";
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/material/form-field';
 import {AppRoutingModule} from "./app.routes";
