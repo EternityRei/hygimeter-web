@@ -1,0 +1,90 @@
+/* General Styles */
+body, h2, p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+}
+
+/* Header and Navigation Styles */
+header {
+  background-color: #333;
+  color: white;
+  padding: 1em 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  transition: background-color 0.3s;
+}
+
+nav a:hover {
+  background-color: #555;
+}
+
+/* Main Content Styles */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 1em;
+}
+
+article {
+  background-color: #f2f2f2;
+  margin: 1em;
+  padding: 1em;
+  border: 1px solid #ddd;
+  flex-basis: 45%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+article h2 {
+  font-family: 'Georgia', serif;
+  margin-bottom: 0.5em;
+}
+
+/* Sidebar Styles */
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+}
+
+aside section {
+  background-color: #e7e7e7;
+  padding: 1em;
+  border: 1px solid #ccc;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+  margin-top: 1em;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+
+  article, aside section {
+    flex-basis: 100%;
+  }
+}

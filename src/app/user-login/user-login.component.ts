@@ -43,12 +43,10 @@ export class UserLoginComponent {
       password: this.password
     }
 
-
     this.authenticationService.login(credentials).pipe(
       tap((data) => {
         const token = data.results[0].access_token;
         localStorage.setItem("token", token)
-        console.log(this.helper.decodeToken(token));
         this.router.navigate(['/dashboard'])
           .then(r =>
             console.log('Navigation to user route complete')

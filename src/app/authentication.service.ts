@@ -34,6 +34,12 @@ export class AuthenticationService {
       role: user.role
     }, httpOptions)
   }
+
+  isLoggedIn(): boolean {
+    const token = localStorage.getItem('token');
+    console.log("Logout = ", token!==null);
+    return token !== null;
+  }
 }
 
 @NgModule({

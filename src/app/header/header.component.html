@@ -1,16 +1,31 @@
 <header class="header">
+  <a class="logo">Hygimeter</a>
   <nav class="navbar">
-    <a href="#" class="logo">Hygimeter</a>
-    <ul class="nav-menu">
-      <li><a href="#" class="nav-item" [routerLink]="'/home'">Home</a></li>
-      <li><a href="#" class="nav-item">Solutions</a></li>
-      <li><a href="#" class="nav-item">Company</a></li>
-      <li><a href="#" class="nav-item">Pricing</a></li>
-      <li><a href="#" class="nav-item">Contact</a></li>
-    </ul>
-    <div class="nav-actions">
-      <a class="btn btn-register" [routerLink]="'/registration'">Register</a>
-      <a href="#" class="btn btn-login" [routerLink]="'/login'">Login</a>
+
+    <!-- Conditionally show the dashboard navigation if logged in -->
+    <div *ngIf="isLoggedIn">
+      <ul class="nav-menu">
+        <li><a class="nav-item">Climate News</a></li>
+        <li><a class="nav-item">World News</a></li>
+        <li><a class="nav-item">Local News</a></li>
+        <li><a class="nav-item">Science</a></li>
+        <li><span class="username">{{email}}</span></li>
+        <li><div class="avatar">{{email.charAt(0)}}</div></li>
+        <li><a (click)="logout()" class="btn btn-logout">Log off</a></li>
+      </ul>
+    </div>
+
+    <!-- Default navigation menu -->
+    <div *ngIf="!isLoggedIn">
+      <ul class="nav-menu">
+        <li><a class="nav-item" [routerLink]="'/home'">Home</a></li>
+        <li><a class="nav-item">Solutions</a></li>
+        <li><a class="nav-item">Company</a></li>
+        <li><a class="nav-item">Pricing</a></li>
+        <li><a class="nav-item">Contact</a></li>
+        <li><a class="btn btn-register" [routerLink]="'/registration'">Register</a></li>
+        <li><a class="btn btn-login" [routerLink]="'/login'">Login</a></li>
+      </ul>
     </div>
   </nav>
 </header>
