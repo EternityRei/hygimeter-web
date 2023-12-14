@@ -10,9 +10,15 @@ body {
   padding: 20px;
 }
 
-.content-wrap {
+.content-wrap-horizontal {
   display: flex;
   justify-content: center;
+}
+
+.content-wrap-vertical {
+  display: flex;
+  justify-content: center;
+  flex-direction: column; 
   min-height: 73vh;
 }
 
