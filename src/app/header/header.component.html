@@ -5,10 +5,7 @@
     <!-- Conditionally show the dashboard navigation if logged in -->
     <div *ngIf="isLoggedIn">
       <ul class="nav-menu">
-        <li><a class="nav-item">Climate News</a></li>
-        <li><a class="nav-item">World News</a></li>
-        <li><a class="nav-item">Local News</a></li>
-        <li><a class="nav-item">Science</a></li>
+        <li><a href="#" class="nav-item" [routerLink]="'/user-profile'">Profile</a></li>
         <li><span class="username">{{email}}</span></li>
         <li><div class="avatar">{{email.charAt(0)}}</div></li>
         <li><a (click)="logout()" class="btn btn-logout">Log off</a></li>

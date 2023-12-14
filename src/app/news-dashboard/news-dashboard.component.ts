@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import {User} from "../user";
 import {JwtHelperService} from "@auth0/angular-jwt";
-import {Router} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {SharedModule, SharedService} from "../shared.service";
 
 @Component({
   selector: 'app-news-dashboard',
   standalone: true,
-  imports: [SharedModule],
+  imports: [SharedModule, RouterLink],
   templateUrl: './news-dashboard.component.html',
   styleUrl: './news-dashboard.component.css'
 })
