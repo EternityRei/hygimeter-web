@@ -1,17 +1,19 @@
 /* General Styles */
-body, h2, p {
+body, h2, h3, p {
   margin: 0;
   padding: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  background-color: #e5e5e5;
+  color: #333;
   line-height: 1.6;
 }
 
 /* Header and Navigation Styles */
 header {
-  background-color: #333;
+  background-color: #0057b8;
   color: white;
   padding: 1em 0;
 }
@@ -30,48 +32,81 @@ nav a {
 }
 
 nav a:hover {
-  background-color: #555;
+  background-color: #0066cc;
 }
 
 /* Main Content Styles */
 main {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 1em;
+}
+
+div {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Creates a responsive grid layout */
+  gap: 20px; /* Spacing between grid items */
+  padding: 20px; /* Padding around the main content */
+  flex-grow: 5;
 }
 
 article {
-  background-color: #f2f2f2;
-  margin: 1em;
-  padding: 1em;
-  border: 1px solid #ddd;
-  flex-basis: 45%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: white;
+  padding: 20px; /* Consistent padding for all cards */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 10px; /* Rounded corners for cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 article h2 {
-  font-family: 'Georgia', serif;
-  margin-bottom: 0.5em;
+  font-family: 'Montserrat', serif;
+  color: #0057b8;
+  margin-bottom: 10px;
 }
 
 /* Sidebar Styles */
 aside {
   display: flex;
   flex-direction: column;
-  gap: 1em;
-  padding: 1em;
+  gap: 20px;
+  padding: 20px;
+  width: 300px;
+  flex: 1;
 }
 
 aside section {
-  background-color: #e7e7e7;
-  padding: 1em;
-  border: 1px solid #ccc;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Specific Styles for the Temperature Section */
+aside section:first-child {
+  background: linear-gradient(to right, #56ccf2, #2f80ed);
+  color: white;
+  border-radius: 20px;
+  align-items: flex-start;
+}
+
+aside section:first-child h3,
+aside section:not(:first-child) h3 {
+  font-size: 1.5em; /* Adjust size as needed */
+  margin-bottom: 0.5em;
+}
+
+aside section:first-child p,
+aside section:not(:first-child) p {
+  font-size: 1.2em; /* Adjust size as needed */
+  font-weight: bold;
 }
 
 /* Footer Styles */
 footer {
-  background-color: #333;
+  background-color: #0057b8;
   color: white;
   text-align: center;
   padding: 1em 0;
@@ -84,7 +119,20 @@ footer {
     flex-direction: column;
   }
 
+  main {
+    grid-template-columns: 1fr; /* Single column layout for smaller screens */
+  }
+
+  main, aside {
+    padding: 1em;
+  }
+
   article, aside section {
-    flex-basis: 100%;
+    margin: 1em;
+    box-shadow: none;
+  }
+
+  article h2, aside h3 {
+    font-size: 1.2em;
   }
 }

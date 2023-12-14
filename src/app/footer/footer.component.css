@@ -1,67 +1,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: #495E7D; /* Replace with the color you want */
-  color: #fff; /* Replace with the color you want */
-  font-family: 'Montserrat', sans-serif;
-  padding: 20px 0;
-  flex-shrink: 0; /* Prevents the footer from shrinking */
-  margin-top: 0;
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 53vh; /* Uses full viewport height */
 }
 
-.footer h5 {
-  color: #aaa; /* Replace with the color you want */
-  font-weight: 700; /* Montserrat bold */
+.content-wrap {
+  flex: 1; /* Allows content to expand and push footer down */
+  min-height: calc(100vh - 40px);
+}
+
+.footer {
+  background-color: #495E7D;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  padding: 20px 0;
+  margin-top: auto; /* Keeps footer at the bottom */
+}
+
+.footer-section h5 {
+  color: #aaa;
+  font-weight: 700;
   margin-bottom: 15px;
 }
 
-.footer ul {
+.footer-section ul {
   list-style: none;
   padding: 0;
 }
 
-.footer ul li a {
-  color: #fff; /* Replace with the color you want */
+.footer-section ul li a {
+  color: #fff;
   text-decoration: none;
   line-height: 2.5;
-  font-weight: 400; /* Montserrat regular */
-}
-
-.footer-section {
-  margin-bottom: 20px;
+  font-weight: 400;
 }
 
 .container {
   width: 80%;
-  margin: 0 auto;
+  margin: 0 auto; /* Centers the container */
 }
 
 .row {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .footer-bottom {
-  background-color: #3C4C66; /* Replace with the actual color you want */
-  position: relative;
-  bottom: 0;
-  left: 0;
+  background-color: #3C4C66;
+  text-align: center;
+  padding: 10px 0;
   width: 100%;
-}
-
-.footer-bottom {
-  display: flex;
-  justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically */
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 40px; /* Adjust the height as needed */
-  background-color: #3C4C66; /* Same color as the footer background */
 }
 
 @media (max-width: 768px) {
@@ -71,6 +62,10 @@
   }
 
   .footer-section {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+  }
+
+  .container {
+    width: 90%; /* Increase width on smaller screens */
   }
 }
