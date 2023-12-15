@@ -11,6 +11,19 @@ body {
   line-height: 1.6;
 }
 
+.content-wrap-horizontal {
+  display: flex;
+  justify-content: center;
+}
+
+.content-wrap-vertical {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 69.25vh;
+  max-height: 69.25vh;
+}
+
 /* Header and Navigation Styles */
 header {
   background-color: #0057b8;

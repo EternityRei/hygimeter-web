@@ -5,6 +5,19 @@ div {
   font-family: 'Montserrat', sans-serif;
 }
 
+.content-wrap-horizontal {
+  display: flex;
+  justify-content: center;
+}
+
+.content-wrap-vertical {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 73vh;
+  max-height: 73vh;
+}
+
 /* Flex container for both form and image */
 .container {
   display: flex;
@@ -16,7 +29,8 @@ div {
 
 /* Styling for the registration form */
 .registration-container {
-  max-width: 700px; /* Maximum width of the form */
+  width: 650px;
+  max-width: 1500px; /* Maximum width of the form */
   margin: 7rem 25rem; /* Positioning the form in the view */
   padding: 2rem; /* Padding inside the form */
   background-color: #fff; /* White background for the form */
