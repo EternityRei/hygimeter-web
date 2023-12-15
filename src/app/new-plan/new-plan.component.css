@@ -1,0 +1,143 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+/* General Styles */
+body, h2, h3, p {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  padding: 20px;
+}
+
+body {
+  background-color: #e5e5e5;
+  color: #333;
+  line-height: 1.6;
+}
+
+.content-wrap-horizontal {
+  display: flex;
+  justify-content: center;
+}
+
+.content-wrap-vertical {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 69.25vh;
+}
+
+/* Header and Navigation Styles */
+header {
+  background-color: #0057b8;
+  color: white;
+  padding: 1em 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-container {
+  margin: 15px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+/* Footer Styles */
+footer {
+  background-color: #0057b8;
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+  margin-top: 1em;
+}
+
+
+
+
+
+
+
+.form {
+  padding: 20px;
+}
+
+
+
+
+.two-forms {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+
+/* Apply Montserrat font to all elements */
+div {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+/* Flex container for both form and image */
+.container {
+  display: flex;
+  justify-content: space-between; /* Spacing between form and image */
+  align-items: center; /* Vertically center contents */
+  margin-left: auto; /* Align container to the right */
+  margin-right: auto; /* Align container to the left */
+}
+
+
+/* Input field styling */
+.form-field {
+  margin-bottom: 1rem; /* Space between fields */
+  position: relative; /* Position relative for absolute positioning inside */
+}
+
+/* Input styling */
+.input-field {
+  width: 100%; /* Full width of the form field */
+  padding: 0.75rem; /* Padding inside the input */
+  border: 1px solid #ccc; /* Border for the input */
+  border-radius: 4px; /* Rounded corners for the input */
+}
+
+
+/* Label styling */
+label {
+  display: block; /* Block display to take full width */
+  margin-bottom: 0.5rem; /* Space below the label */
+  color: #333; /* Label text color */
+}
+
+/* Button styling */
+button {
+  width: 100%; /* Full width of the form field */
+  padding: 1rem; /* Padding inside the button */
+  border: none; /* No border for the button */
+  background-color: #0056b3; /* Background color for the button */
+  color: white; /* Text color for the button */
+  border-radius: 4px; /* Rounded corners for the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1rem; /* Font size for the button */
+  transition: background-color 0.3s ease; /* Transition for the button */
+}
+
+/* Button hover state */
+button:hover:not(:disabled) {
+  background-color: #003d82; /* Darker color on hover */
+}
+
+/* Button disabled state */
+button:disabled {
+  background-color: #cccccc; /* Gray background when disabled */
+  cursor: not-allowed; /* No pointer cursor when disabled */
+}

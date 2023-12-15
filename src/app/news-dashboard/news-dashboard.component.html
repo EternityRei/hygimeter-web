@@ -19,46 +19,12 @@
       </aside>
 
       <div class="topics">
-        <article id="climate">
-          <h2>Microclimate Statistics</h2>
-          <p>Today's microclimate stats show an increase in humidity...</p>
-        </article>
-
-        <article id="world-news" [routerLink]="'/home'">
-          <h2>Global Economic Shifts</h2>
-          <p>Recent changes in the global market have led to...</p>
-        </article>
-
-        <article id="local-news">
-          <h2>Community Events</h2>
-          <p>This weekend the local park will host a festival for...</p>
-        </article>
-
-        <article id="science1">
-          <h2>Advancements in Renewable Energy</h2>
-          <p>Innovations in solar technology are promising for...</p>
-        </article>
-
-        <article id="science2">
-          <h2>Advancements in Renewable Energy</h2>
-          <p>Innovations in solar technology are promising for...</p>
-        </article>
-
-        <article id="science3">
-          <h2>Advancements in Renewable Energy</h2>
-          <p>Innovations in solar technology are promising for...</p>
-        </article>
-
-        <article id="science4">
-          <h2>Advancements in Renewable Energy</h2>
-          <p>Innovations in solar technology are promising for...</p>
-        </article>
-
-        <article id="science5">
-          <h2>Advancements in Renewable Energy</h2>
-          <p>Innovations in solar technology are promising for...</p>
+        <article *ngFor="let article of articles" [id]="article.id" [routerLink]="['/topic', article.id]">
+          <h2>{{ article.name }}</h2>
+          <img [src]="article.image" loading="lazy"/>
         </article>
       </div>
+
     </main>
   </div>
 </div>

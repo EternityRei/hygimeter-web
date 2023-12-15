@@ -8,7 +8,7 @@ import {environment} from '../environments/environment.local';
 const headers = new HttpHeaders()
   .set('Content-Type', 'application/json')
 const httpOptions = {headers: headers}
-const BACKEND_URL = environment.apiUrl;
+const BACKEND_URL = environment.backendApiUrl;
 
 @Injectable({
   providedIn: 'root'

@@ -1,0 +1,111 @@
+/* General Styles */
+body, h2, h3 {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 1.6em;
+  padding: 10px;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+body {
+  background-color: #e5e5e5;
+  color: #333;
+  line-height: 1.6;
+}
+
+.content-wrap-horizontal {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.content-wrap-vertical {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 69.25vh;
+  overflow: hidden;
+}
+
+/* Header and Navigation Styles */
+header {
+  background-color: #0057b8;
+  color: white;
+  padding: 1em 0;
+}
+
+
+main {
+  width: 100vw;
+}
+
+
+/* Footer Styles */
+footer {
+  background-color: #0057b8;
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+  margin-top: 1em;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  min-width: 100%;
+  padding: 20px;
+}
+
+.left, .right {
+  padding: 20px;
+}
+
+.left {
+  width: 66%;
+  min-width: 66%;
+  padding: 45px 40px;
+  border-radius: 2%;
+  background: linear-gradient(to right, #56ccf222, #2f80ed22);
+  
+}
+
+.right {
+  width: 30%;
+  min-width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  
+  top: 35%;
+  right: 2%;
+  height: 30vh;
+  overflow: hidden;
+  border-radius: 3%;
+  background: linear-gradient(to right, #56ccf266, #2f80ed66);
+}
+
+
+/* Button styling */
+.button-try {
+  width: 50%; /* Full width of the form field */
+  padding: 20px; /* Padding inside the button */
+  border: none; /* No border for the button */
+  background-color: #0056b3; /* Background color for the button */
+  color: white; /* Text color for the button */
+  border-radius: 3%;
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1rem; /* Font size for the button */
+  transition: background-color 0.3s ease; /* Transition for the button */
+}

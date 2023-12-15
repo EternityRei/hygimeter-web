@@ -4,14 +4,15 @@ import {JwtHelperService} from "@auth0/angular-jwt";
 import {UserModule, UserService} from "../user.service";
 import {Router} from "@angular/router";
 import {catchError, tap} from "rxjs";
-import {MatSnackBar, MatSnackBarConfig} from "@angular/material/snack-bar";
+import {MatSnackBar, MatSnackBarConfig, MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatDialog} from "@angular/material/dialog";
 import {FormsModule} from "@angular/forms";
+
 
 @Component({
   selector: 'app-user-profile',
   standalone: true,
-  imports: [UserModule, FormsModule],
+  imports: [UserModule, FormsModule, MatSnackBarModule],
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.css'
 })
@@ -80,6 +81,7 @@ export class UserProfileComponent implements OnInit {
       .updateUserData(updatedUser, this.email)
       .pipe(
         tap((response: any) => {
+          this.email = response.results[0].email;
           this.getUserByEmail(updatedUser.email);
           this.displayMessageBar(
             "User's profile has been updated successfully"
@@ -143,8 +145,9 @@ export class UserProfileComponent implements OnInit {
       verticalPosition: "top",
       horizontalPosition: "center",
       duration: 5000,
+      
     };
-    this.snackBar.open(message, "Cancel", config);
+    this.snackBar.open(message, "Ok", config);
   }
 
 }

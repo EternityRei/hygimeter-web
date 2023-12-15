@@ -1,0 +1,96 @@
+<div class="content-wrap-horizontal">
+  <div class="content-wrap-vertical">
+    <main>
+
+      <div class="container">
+
+        <h1>Create New Plan</h1>
+        <form #loginForm="ngForm" (ngSubmit)="login()" class="form">
+          <div class="two-forms">
+            <div class="form-container">
+              <div class="form-field">
+                <label for="temperature">Temperature:</label>
+                <input type="number" id="init_temperature" class="input-field" [(ngModel)]="initialPlan.temperature" name="init_temperature" required (change)="applyForGoal('temperature')"/>
+              </div>
+
+              <div class="form-field">
+                <label for="temperature">Absolute humidity:</label>
+                <input type="number" id="init_absolute_humidity" class="input-field" [(ngModel)]="initialPlan.absoluteHumidity" name="init_absolute_humidity" required (change)="applyForGoal('absoluteHumidity')">
+              </div>
+
+              <div class="form-field">
+                <label for="relative_humidity">Relative humidity:</label>
+                <input type="number" id="init_relative_humidity" class="input-field" [(ngModel)]="initialPlan.relativeHumidity" name="init_relative_humidity" required (change)="applyForGoal('relativeHumidity')">
+              </div>
+
+              <div class="form-field">
+                <label for="light_level">Light level:</label>
+                <input type="number" id="init_light_level" class="input-field" [(ngModel)]="initialPlan.lightLevel" name="init_light_level" required (change)="applyForGoal('lightLevel')">
+              </div>
+
+              <div class="form-field">
+                <label for="ventilation_type">Ventilation type:</label>
+                <select id="init_ventilation_type" class="input-field" [(ngModel)]="initialPlan.ventilationType" name="init_ventilation_type" required (change)="applyForGoal('ventilationType')">
+                  <option value="Central Air Conditioning">Central Air Conditioning</option>
+                  <option value="Natural Ventilation">Natural Ventilation</option>
+                  <option value="Ceiling Fans">Ceiling Fans</option>
+                  <option value="HVAC System">HVAC System</option>
+                  <option value="Exhaust Fans">Exhaust Fans</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="lights_off_time">Lights off time:</label>
+                <input type="time" id="init_lights_off_time" class="input-field" [(ngModel)]="initialPlan.lightsOffTime" name="init_lights_off_time" required (change)="applyForGoal('lightsOffTime')">
+              </div>
+            </div>
+            <div class="form-container">
+              <div class="form-field">
+                <label for="temperature">Temperature:</label>
+                <input type="number" id="temperature" class="input-field" [(ngModel)]="goalPlan.temperature" name="temperature" required (change)="cancelApplyingForGoal('temperature')">
+              </div>
+
+              <div class="form-field">
+                <label for="temperature">Absolute humidity:</label>
+                <input type="number" id="absolute_humidity" class="input-field" [(ngModel)]="goalPlan.absoluteHumidity" name="absolute_humidity" required (change)="cancelApplyingForGoal('absoluteHumidity')">
+              </div>
+
+              <div class="form-field">
+                <label for="relative_humidity">Relative humidity:</label>
+                <input type="number" id="relative_humidity" class="input-field" [(ngModel)]="goalPlan.relativeHumidity" name="relative_humidity" required (change)="cancelApplyingForGoal('relativeHumidity')">
+              </div>
+
+              <div class="form-field">
+                <label for="light_level">Light level:</label>
+                <input type="number" id="light_level" class="input-field" [(ngModel)]="goalPlan.lightLevel" name="light_level" required (change)="cancelApplyingForGoal('lightLevel')">
+              </div>
+
+              <div class="form-field">
+                <label for="ventilation_type">Ventilation type:</label>
+                <select id="ventilation_type" class="input-field" [(ngModel)]="goalPlan.ventilationType" name="ventilation_type" required (change)="cancelApplyingForGoal('ventilationType')">
+                  <option value="Central Air Conditioning">Central Air Conditioning</option>
+                  <option value="Natural Ventilation">Natural Ventilation</option>
+                  <option value="Ceiling Fans">Ceiling Fans</option>
+                  <option value="HVAC System">HVAC System</option>
+                  <option value="Exhaust Fans">Exhaust Fans</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="lights_off_time">Lights off time:</label>
+                <input type="time" id="lights_off_time" class="input-field" [(ngModel)]="goalPlan.lightsOffTime" name="lights_off_time" required (keyup)="cancelApplyingForGoal('lightsOffTime')">
+              </div>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <button type="submit" [disabled]="isButtonDisabled">Create</button>
+        </div>
+
+        </form>
+
+      </div>
+
+    </main>
+  </div>
+</div>
