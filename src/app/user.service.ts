@@ -6,7 +6,7 @@ import { User } from "./user";
 import {SharedService} from "./shared.service";
 import {NoopAnimationsModule} from "@angular/platform-browser/animations";
 
-const BACKEND_URL = environment.apiUrl;
+const BACKEND_URL = environment.backendApiUrl;
 
 @Injectable({
   providedIn: "root",

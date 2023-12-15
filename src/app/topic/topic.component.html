@@ -1,0 +1,22 @@
+<div class="content-wrap-horizontal">
+  <div class="content-wrap-vertical">
+    <main>
+
+      <div class="container">
+        <div class="left">
+            <h1>{{article.name}}</h1>
+            <p style="white-space: pre-line;">{{article.content}}</p>
+            <iframe width="1200" height="600" [src]="safeVideoUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="right">
+            <h2>Create plan based on this topic</h2>
+            <p *ngFor="let parameter of parameterKeys" [id]="parameter">{{internalToReadableMap[parameter]}}: {{article.parameters[parameter]}}</p>
+            <p><br></p>
+            <button class="button-try" [routerLink]="['/new-plan', id]">Try It</button>
+        </div>
+    </div>
+
+
+    </main>
+  </div>
+</div>
