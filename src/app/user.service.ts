@@ -1,6 +1,6 @@
 import {Injectable, NgModule} from "@angular/core";
 import {HttpClient, HttpClientModule, HttpHeaders, HttpParams} from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Observable, tap } from "rxjs";
 import { environment } from "../environments/environment.local";
 import { User } from "./user";
 import {SharedService} from "./shared.service";
@@ -30,12 +30,22 @@ export class UserService {
       .set('Authorization', 'Bearer ' + this.token)
       .set('Content-Type', 'application/json');
 
-    return this.http.patch<any>(BACKEND_URL + "users/" + emailFromJwt, {
+    let result = this.http.patch<any>(BACKEND_URL + "users/" + emailFromJwt, {
       name: user.name,
       surname: user.surname,
       email: user.email,
       role: user.role
-    }, { headers: headers });
+    }, { headers: headers })
+      .pipe(
+        tap((data: any) => {
+          console.log("User updated with data: ");
+          console.log(data);
+          if (data.results[0].email != emailFromJwt) {
+            this.token = data.results[1];
+          }
+        })
+      );
+    return result;
   }
 
 }
